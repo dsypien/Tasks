@@ -11,11 +11,13 @@
     </div>
 
     <!-- Task List -->
-    <p class="input-group" ng-repeat="task in tasks">
-      <input type="text" ng-model="task" class="form-control">
-      <span class="input-group-btn">
-        <button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Delete">X</button>
-      </span>
-    </p>
+    <div ui-sortable ng-model="tasks">
+      <p class="input-group mvble" ng-repeat="task in tasks">
+        <input type="text" ng-model="task" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Delete">X</button>
+        </span>
+      </p>
+    </div>
   </form>
 </div>

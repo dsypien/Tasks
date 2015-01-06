@@ -81,3 +81,8 @@ body {
 .input-group{
   margin-bottom: 15px;
 }
+
+.ui-sortable .input-group{
+  padding: 5px 10px;
+  cursor: move;
+}
