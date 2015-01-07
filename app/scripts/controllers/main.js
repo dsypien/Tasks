@@ -8,12 +8,15 @@
  * Controller of the tasksApp
  */
 angular.module('tasksApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.tasks = [
-      'Item 1',
-      'Item 2',
-      'Item 3'
-    ];
+  .controller('MainCtrl', function ($scope, localStorageService) {
+  	var tasksInStore = localStorageService.get('tasks');
+
+    $scope.tasks = tasksInStore || [];
+
+    // Save tasks to local storage when task is changed
+    $scope.$watch('tasks', function(){
+    	localStorageService.set('tasks', $scope.tasks);
+    }, true);
     
     $scope.addTask = function(){
     	$scope.tasks.push($scope.task);
