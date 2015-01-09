@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Tasks</h2>
+  <h2>To do:</h2>
   <form role="form" ng-submit="addTask()">
     <div class="row">
       <div class="input-group">
@@ -13,11 +13,26 @@
     <!-- Task List -->
     <div ui-sortable ng-model="tasks">
       <p class="input-group" ng-repeat="task in tasks">
+        <span class="input-group-addon">{{$index + 1}}. </span>
         <input type="text" ng-model="task" class="form-control">
         <span class="input-group-btn">
-          <button class="btn btn-danger" ng-click="removeTask($index)" aria-label="Delete">X</button>
+          <button class="btn btn-warning glyphicon glyphicon-ok" ng-click="finishTask($index)" aria-label="Complete"></button>
         </span>
       </p>
     </div>
   </form>
+
+    <h2 class="top-space-50">Completed Tasks:</h2>
+    <div ng-model="finishedTasks">
+      <p class="input-group row" ng-repeat="finishedTask in finishedTasks">
+        <span class="input-group-addon">{{$index+1}}</span>
+        <input type="text" ng-model='finishedTask' class="form-control">
+        </input>
+        <span class="input-group-btn">
+          <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list"></button>
+          <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete"></button>
+        </span>
+      </p>
+    </div>
+
 </div>
