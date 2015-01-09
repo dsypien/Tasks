@@ -86,3 +86,7 @@ body {
   padding: 5px 10px;
   cursor: move;
 }
+
+.top-space-50{
+  padding-top: 50px;
+}
