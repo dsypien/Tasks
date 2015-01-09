@@ -9,13 +9,20 @@
  */
 angular.module('tasksApp')
   .controller('MainCtrl', function ($scope, localStorageService) {
-  	var tasksInStore = localStorageService.get('tasks');
+  	var tasksInStore = localStorageService.get('toDoTasks');
+  	var finishedTasksInStore = localStorageService.get('finishedTasks');
 
     $scope.tasks = tasksInStore || [];
+    $scope.finishedTasks = finishedTasksInStore || [];
 
     // Save tasks to local storage when task is changed
     $scope.$watch('tasks', function(){
-    	localStorageService.set('tasks', $scope.tasks);
+    	localStorageService.set('toDoTasks', $scope.tasks);
+    }, true);
+
+    //Save finished tasks to local storage
+    $scope.$watch('finishedTasks', function(){
+    	localStorageService.set('finishedTasks', $scope.finishedTasks);
     }, true);
     
     $scope.addTask = function(){
@@ -23,7 +30,8 @@ angular.module('tasksApp')
     	$scope.task = '';
     };
 
-    $scope.removeTask = function(index){
-    	$scope.tasks.splice(index, 1);
+    $scope.finishTask = function(index){
+    	var task = $scope.tasks.splice(index, 1);
+    	$scope.finishedTasks.push(task);
     };
   });
