@@ -29,7 +29,7 @@
         <input type="text" ng-model='finishedTask' class="form-control">
         </input>
         <span class="input-group-btn">
-          <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list" ng-click="revertTask(index)"></button>
+          <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list" ng-click="revertTask($index)"></button>
           <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
         </span>
       </p>

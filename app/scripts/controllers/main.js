@@ -37,7 +37,7 @@ angular.module('tasksApp')
 
     $scope.revertTask = function(index){
     	console.log('reverting task ' + index);
-    	var task = $scope.finishedTasks.splice(index);
+    	var task = $scope.finishedTasks.splice(index, 1);
     	$scope.tasks.push(task);
     };
 
