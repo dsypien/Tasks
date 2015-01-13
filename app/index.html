@@ -22,10 +22,10 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
+      <div class="header" ng-controller="NavCtrl">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#/home">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
+          <li ng-class="getClass('/home')"><a ng-href="#/home">Home</a></li>
+          <li ng-class="getClass('/about')"><a ng-href="#/about">About</a></li>
         </ul>
         <h3 class="text-muted">tasks</h3>
       </div>
@@ -78,6 +78,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/nav.js"></script>  
         <!-- endbuild -->
 </body>
 </html>
