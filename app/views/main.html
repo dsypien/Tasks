@@ -22,17 +22,18 @@
     </div>
   </form>
 
+  <!-- Finished Tasks Section -->
+  <div ng-controller="FinishedTasksCtrl" ng-class="getVisibilityClass()" ng-model="finishedTasks">
     <h2 class="top-space-50">Completed Tasks:</h2>
-    <div ng-model="finishedTasks">
-      <p class="input-group row" ng-repeat="finishedTask in finishedTasks">
-        <span class="input-group-addon">{{$index+1}}</span>
-        <input type="text" ng-model='finishedTask' class="form-control">
-        </input>
-        <span class="input-group-btn">
-          <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list" ng-click="revertTask($index)"></button>
-          <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
-        </span>
-      </p>
-    </div>
+    <p class="input-group row" ng-repeat="finishedTask in finishedTasks">
+      <span class="input-group-addon">{{$index+1}}</span>
+      <input type="text" ng-model='finishedTask' class="form-control">
+      </input>
+      <span class="input-group-btn">
+        <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list" ng-click="revertTask($index)"></button>
+        <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
+      </span>
+    </p>
+  </div>
 
 </div>
