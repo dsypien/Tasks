@@ -35,13 +35,26 @@ angular.module('tasksApp')
     	$scope.finishedTasks.push(task);
     };
 
-    $scope.revertTask = function(index){
-    	console.log('reverting task ' + index);
-    	var task = $scope.finishedTasks.splice(index, 1);
-    	$scope.tasks.push(task);
-    };
-
-    $scope.removeTask = function(index){
-    	$scope.finishedTasks.splice(index, 1);
-    };
   });
+
+angular.module('tasksApp')
+	.controller('FinishedTasksCtrl', function($scope){
+		$scope.revertTask = function(index){
+	    	console.log('reverting task ' + index);
+	    	var task = $scope.finishedTasks.splice(index, 1);
+	    	$scope.tasks.push(task);
+	    };
+
+	    $scope.removeTask = function(index){
+	    	$scope.finishedTasks.splice(index, 1);
+	    };
+
+	    $scope.getVisibilityClass = function(){
+	    	if($scope.finishedTasks.length === 0){
+	    		return 'hidden';
+	    	}
+	    	else{
+	    		return '';
+	    	}
+	    };
+	});
