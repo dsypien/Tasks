@@ -25,6 +25,7 @@
       <div class="header" ng-controller="NavCtrl">
         <ul class="nav nav-pills pull-right">
           <li ng-class="getClass('/home')"><a ng-href="#/home">Home</a></li>
+          <li ng-class="getClass('/projects')"><a ng-href="#/projects">Projects</a></li>
           <li ng-class="getClass('/about')"><a ng-href="#/about">About</a></li>
         </ul>
         <h3 class="text-muted">tasks</h3>
@@ -76,7 +77,8 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/projects.js"></script>
+        <script src="scripts/controllers/tasks.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/nav.js"></script>  
         <!-- endbuild -->
