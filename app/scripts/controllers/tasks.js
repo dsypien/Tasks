@@ -1,14 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name tasksApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the tasksApp
- */
 angular.module('tasksApp')
-  .controller('MainCtrl', function ($scope, localStorageService) {
+  .controller('TasksCtrl', function ($scope, localStorageService) {
   	var tasksInStore = localStorageService.get('toDoTasks');
   	var finishedTasksInStore = localStorageService.get('finishedTasks');
 
