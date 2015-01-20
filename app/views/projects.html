@@ -1,26 +1,29 @@
 <div class="content">
-	<form ng-submit="create()">
-		<div class="row">
-			<div class="input-group">
-				<input type='text' ng-model="project.name" class='form-control' placeholder="Project name" required>
-				<span class="input-group-btn">
-					<input type="submit" class="btn btn-primary" value="Create">
-				</span>
-			</div>
-		</div>
-	</form>
 
 	<h2>My Projects:</h2>
+
 	<div ui-sortable ng-model="projects">
 		<div class="list-group" ng-repeat="project in projects">
-			<a class="list-group-item">
-				<h4 class="list-group-item-heading">{{project.name}}</h4>
-				<p class="list-group-item-text">
-					{{project.summary}}
-				</p>
-				<button type="button" ng-click='delete($index)'>Delete</button> 
-			</a>
+			<div class="col-md-3">
+				<div ng-click="goToProjectPage($index)" class="project-container">
+					<h3 class="list-group-item-heading">{{project.name}}</h3>
+					<p class="list-group-item-text">
+						{{project.summary}}
+					</p>
+					<button type="button" class="btn btn-danger glyphicon glyphicon-trash" ng-click='delete($index)'></button> 
+				</div>
+			</div>
 
+		</div>
+
+		<div >
+		    <form ng-submit="create()" class="col-md-6">
+				<div class="project-container">
+						<input type='text' ng-model="project.name" class='form-control' placeholder="Project name" required>
+
+						<button type="submit" class="btn btn-success glyphicon glyphicon-ok"></button> 
+				</div>
+			</form>
 		</div>
 	</div>
 

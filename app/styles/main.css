@@ -1,5 +1,6 @@
 /* Space out content a bit */
 body {
+  color: #737373;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -34,7 +35,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1200px;
   }
 }
 .container-narrow > hr {
@@ -89,4 +90,44 @@ body {
 
 .top-space-50{
   padding-top: 50px;
+}
+
+.project-container{
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-container button{
+  float: right;
+}
+
+.col-md-3,
+.col-md-6{
+  margin: 10px 0px;
+}
+
+.content{
+  overflow: hidden;
+}
+
+.project-container input {
+  line-height: 24px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer{
+  margin: 50px;
+}
+
+h2{
+  margin-bottom: 15px;
+}
+
+h3{
+  margin-bottom:18px !important;
 }

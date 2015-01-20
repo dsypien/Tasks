@@ -20,16 +20,18 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- NAVIGATION -->
+    <div class="header" ng-controller="NavCtrl">
+      <ul class="nav nav-pills pull-right">
+        <li ng-class="getClass('/home')"><a ng-href="#/home">Home</a></li>
+        <li ng-class="getClass('/projects')"><a ng-href="#/projects">Projects</a></li>
+        <li ng-class="getClass('/about')"><a ng-href="#/about">About</a></li>
+      </ul>
+      <h3 class="text-muted">tasks</h3>
+    </div>
+
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header" ng-controller="NavCtrl">
-        <ul class="nav nav-pills pull-right">
-          <li ng-class="getClass('/home')"><a ng-href="#/home">Home</a></li>
-          <li ng-class="getClass('/projects')"><a ng-href="#/projects">Projects</a></li>
-          <li ng-class="getClass('/about')"><a ng-href="#/about">About</a></li>
-        </ul>
-        <h3 class="text-muted">tasks</h3>
-      </div>
 
       <div ng-view=""></div>
 

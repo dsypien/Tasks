@@ -15,6 +15,10 @@ angular.module('tasksApp')
 			$scope.projects.splice(index, 1);
 		};
 
+		$scope.goToProjectPage = function(index){
+			console.log($scope.projects[index]);
+		};
+
 		// Save any changes to local storage
 		$scope.$watch('projects',function(){
 			localStorageService.set('projects', $scope.projects);
