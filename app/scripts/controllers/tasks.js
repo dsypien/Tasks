@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tasksApp')
-  .controller('TasksCtrl', function ($scope, localStorageService) {
+  .controller('TasksCtrl', function ($scope, localStorageService, projectStoreService) {
   	var tasksInStore = localStorageService.get('toDoTasks');
   	var finishedTasksInStore = localStorageService.get('finishedTasks');
 

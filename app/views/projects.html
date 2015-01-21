@@ -5,7 +5,7 @@
 	<div ui-sortable ng-model="projects">
 		<div class="list-group" ng-repeat="project in projects">
 			<div class="col-md-3">
-				<div ng-click="goToProjectPage($index)" class="project-container">
+				<div ng-click="goToTasks($index)" class="project-container">
 					<h3 class="list-group-item-heading">{{project.name}}</h3>
 					<p class="list-group-item-text">
 						{{project.summary}}

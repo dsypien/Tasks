@@ -23,7 +23,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/home', {
+      .when('/tasks', {
         templateUrl: 'views/tasks.html',
         controller: 'TasksCtrl'
       })
@@ -36,7 +36,7 @@ angular
         controller: 'AboutCtrl'
       })
       .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/tasks'
       });
   })
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){

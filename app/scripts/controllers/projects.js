@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tasksApp')
-	.controller('ProjectsCtrl', function($scope, localStorageService){
+	.controller('ProjectsCtrl', function($scope, $location, localStorageService, projectStoreService){
 		var projectsInStore = localStorageService.get('projects');
 
 		$scope.projects = projectsInStore || [];
@@ -15,8 +15,9 @@ angular.module('tasksApp')
 			$scope.projects.splice(index, 1);
 		};
 
-		$scope.goToProjectPage = function(index){
-			console.log($scope.projects[index]);
+		$scope.goToTasks = function(index){
+			projectStoreService.setCurrent($scope.projects[index]);
+			$location.path('/tasks');
 		};
 
 		// Save any changes to local storage
