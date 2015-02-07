@@ -36,7 +36,7 @@ angular
         controller: 'AboutCtrl'
       })
       .otherwise({
-        redirectTo: '/tasks'
+        redirectTo: '/projects'
       });
   })
   .config(['localStorageServiceProvider', function(localStorageServiceProvider){
