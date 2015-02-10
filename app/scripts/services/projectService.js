@@ -11,9 +11,9 @@ angular.module('tasksApp')
 				console.log(currentProject);
 				return name;
 			},
-			save: function(name){
-				return name;
-			},
+			// save: function(){
+			// 	localStorageService.set('projects', )
+			// },
 			setCurrent : function(project){
 				currentProject = project;
 				console.log(currentProject);
