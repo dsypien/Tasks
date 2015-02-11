@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('tasksApp')
-	.controller('ProjectsCtrl', function($scope, $location, localStorageService, projectStoreService){
-		var projectsInStore = localStorageService.get('projects');
+	.controller('ProjectsCtrl', function($scope, $location, projectStoreService){
+		var projectsInStore = projectStoreService.getProjects();
 
 		$scope.projects = projectsInStore || [];
 
 		$scope.create = function(){
+			$scope.project.tasks = [];
 			$scope.projects.push($scope.project);
 			$scope.project = '';
 		};
@@ -22,7 +23,6 @@ angular.module('tasksApp')
 
 		// Save any changes to local storage
 		$scope.$watch('projects',function(){
-			localStorageService.set('projects', $scope.projects);
+			projectStoreService.save('projects', $scope.projects);
 		}, true);
-
 	});
