@@ -8,6 +8,7 @@ angular.module('tasksApp')
 
 		$scope.create = function(){
 			$scope.project.tasks = [];
+			$scope.project.finishedTasks = []; 
 			$scope.projects.push($scope.project);
 			$scope.project = '';
 		};
@@ -18,7 +19,7 @@ angular.module('tasksApp')
 
 		$scope.goToTasks = function(index){
 			projectStoreService.setCurrent($scope.projects[index]);
-			$location.path('/tasks');
+			$location.path('/tasks/' + index);
 		};
 
 		// Save any changes to local storage
