@@ -23,7 +23,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/tasks', {
+      .when('/tasks/:index', {
         templateUrl: 'views/tasks.html',
         controller: 'TasksCtrl'
       })

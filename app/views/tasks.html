@@ -3,7 +3,7 @@
   <form role="form" ng-submit="addTask()">
     <div class="row">
       <div class="input-group">
-        <input type="text" ng-model="task.name" placeholder="Whachu need to do?" class="form-control">
+        <input type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
         <span class="input-group-btn">
           <input type="submit" class="btn btn-primary" value="Add">
         </span>
@@ -12,7 +12,7 @@
 
     <!-- Task List -->
     <div ui-sortable ng-model="tasks">
-      <p class="input-group" ng-repeat="task in tasks">
+      <p class="input-group" ng-repeat="task in project.tasks">
         <span class="input-group-addon">{{$index + 1}}. </span>
         <input type="text" ng-model="task.name" class="form-control">
         <span class="input-group-btn">
@@ -25,7 +25,7 @@
   <!-- Finished Tasks Section -->
   <div ng-controller="FinishedTasksCtrl" ng-class="getVisibilityClass()" ng-model="finishedTasks">
     <h2 class="top-space-50">Completed Tasks:</h2>
-    <p class="input-group row" ng-repeat="finishedTask in finishedTasks">
+    <p class="input-group row" ng-repeat="finishedTask in project.finishedTasks">
       <span class="input-group-addon">{{$index+1}}</span>
       <input type="text" ng-model='finishedTask.name' class="form-control">
       </input>
