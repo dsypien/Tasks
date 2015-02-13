@@ -19,7 +19,7 @@ angular.module('tasksApp')
 
 		$scope.goToTasks = function(index){
 			projectStoreService.setCurrent($scope.projects[index]);
-			$location.path('/tasks/' + index);
+			$location.path('/project/' + index);
 		};
 
 		// Save any changes to local storage
