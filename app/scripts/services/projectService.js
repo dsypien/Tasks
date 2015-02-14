@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('tasksApp')
-	.service('projectStoreService', function($routeParams,localStorageService){
-		var projectsInStore = localStorageService.get('projects');
+	.service('projectStoreService', function( $routeParams,localStorageService){
 		var currentProject ;
 		var currentProjectIndex = -1;
+		var projectsInStore = localStorageService.get('projects');
 
 		return{
 			getProjects: function(){
@@ -17,9 +17,10 @@ angular.module('tasksApp')
 				}
 				return currentProject;
 			},
-			save: function(key, val){
-				localStorageService.set(key, val);
-			},
+			 save: function(project){
+			 	projectsInStore[currentProjectIndex] = project;
+			 	localStorageService.set('projects', projectsInStore);
+			 },
 			setCurrent : function(project){
 				currentProject = project;
 			}

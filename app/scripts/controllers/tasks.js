@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tasksApp')
-  .controller('TasksCtrl', function ($scope, localStorageService, projectStoreService) {
+  .controller('TasksCtrl', function ($scope, projectStoreService) {
     $scope.project = projectStoreService.getCurrent();
     console.log("current proj: " + $scope.project);
     
@@ -14,5 +14,9 @@ angular.module('tasksApp')
     	var task = $scope.project.tasks.splice(index, 1)[0];
     	$scope.project.finishedTasks.push(task);
     };
+
+    $scope.$watch('project', function(){
+    	projectStoreService.save($scope.project);
+    }, true);
 
   });
