@@ -21,12 +21,12 @@
     <![endif]-->
 
     <!-- NAVIGATION -->
-    <div class="header" ng-controller="NavCtrl">
+    <div class="header">
       <ul class="nav nav-pills pull-right">
         <li ng-class="getClass('/projects')"><a ng-href="#/projects">Projects</a></li>
         <li ng-class="getClass('/about')"><a ng-href="#/about">About</a></li>
       </ul>
-      <h3 ng-controller="TasksCtrl" class="text-muted">tasks</h3>
+      <h3 class="text-muted">Project tracker</h3>
     </div>
 
     <!-- Add your site or application content here -->
@@ -79,6 +79,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/services/projectService.js"></script>
+        <script src="scripts/services/navService.js"></script>
         <script src="scripts/controllers/projects.js"></script>
         <script src="scripts/controllers/tasks.js"></script>
         <script src="scripts/controllers/finishedtasks.js"></script>

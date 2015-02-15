@@ -4,7 +4,7 @@ angular.module('tasksApp')
   .controller('TasksCtrl', function ($scope, projectStoreService) {
     $scope.project = projectStoreService.getCurrent();
     console.log("current proj: " + $scope.project);
-    
+
     $scope.addTask = function(){
     	$scope.project.tasks.push($scope.project.task);
     	$scope.project.task = '';
