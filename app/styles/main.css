@@ -16,6 +16,7 @@ body {
   max-width:1200px;
   margin: 0 auto;
   border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -147,4 +148,8 @@ textarea {
   padding: 0px 15px;
   margin-top: -2px;
   border-radius: 0px 4px 4px 0px;
+}
+
+.finishedlist{
+  margin-top: 40px;
 }

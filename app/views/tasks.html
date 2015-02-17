@@ -25,7 +25,7 @@
 
   <!-- Finished Tasks Section -->
   <div class="finishedlist" ng-controller="FinishedTasksCtrl" ng-class="getVisibilityClass()" ng-model="finishedTasks">
-    <h2 class="top-space-50">Completed Tasks:</h2>
+    <h2 >Completed Tasks:</h2>
     <p class="input-group row" ng-repeat="finishedTask in project.finishedTasks">
       <span class="input-group-addon">{{$index+1}}</span>
       <textarea type="text" ng-model='finishedTask.name' class="form-control">
