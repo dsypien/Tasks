@@ -19,4 +19,13 @@ angular.module('tasksApp')
     	projectStoreService.save($scope.project);
     }, true);
 
+    var updateTextAreaHeight = function(){
+    	$(this).height(0).height(this.scrollHeight);
+    };
+
+    function init(){
+    	$('.tasklist').on('change keyup keydown paste cut', 'textarea', updateTextAreaHeight).find('textarea').change();	
+    }
+    
+    init();
   });
