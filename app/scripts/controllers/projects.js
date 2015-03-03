@@ -1,7 +1,7 @@
-'use strict';
-
 angular.module('tasksApp')
 	.controller('ProjectsCtrl', function($scope, $location, projectStoreService){
+		'use strict';
+		
 		var projectsInStore = projectStoreService.getProjects();
 
 		$scope.projects = projectsInStore || [];

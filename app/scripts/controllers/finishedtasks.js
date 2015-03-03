@@ -1,8 +1,8 @@
-"using strict";
-
 // This controller is nested within the TasksCtrl controller
 angular.module('tasksApp')
 	.controller('FinishedTasksCtrl', function($scope){
+		'use strict';
+		
 		$scope.revertTask = function(index){
 	    	console.log('reverting task ' + index);
 	    	var task = $scope.project.finishedTasks.splice(index, 1)[0];

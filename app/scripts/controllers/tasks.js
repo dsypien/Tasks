@@ -1,9 +1,15 @@
-'use strict';
-
 angular.module('tasksApp')
   .controller('TasksCtrl', function ($scope, projectStoreService) {
+    'use strict';
+
     $scope.project = projectStoreService.getCurrent();
-    console.log("current proj: " + $scope.project);
+    console.log('current proj: ' + $scope.project);
+
+    $scope.$on('$viewContentLoaded', function(){
+        jQuery('textarea').each(function(){
+            updateTextAreaHeight();
+        });
+    });
 
     $scope.addTask = function(){
     	$scope.project.tasks.push($scope.project.task);
@@ -19,13 +25,13 @@ angular.module('tasksApp')
     	projectStoreService.save($scope.project);
     }, true);
 
-    var updateTextAreaHeight = function(){
-    	$(this).height(0).height(this.scrollHeight);
-    };
+    // var updateTextAreaHeight = function(){
+    // 	jQuery(this).height(0).height(this.scrollHeight);
+    // };
 
-    function init(){
-    	$('.tasklist').on('change keyup keydown paste cut', 'textarea', updateTextAreaHeight).find('textarea').change();	
-    }
+    // function init(){
+    // 	jQuery('.tasklist').on('change keyup keydown paste cut', 'textarea', updateTextAreaHeight).find('textarea').change();	
+    // }
     
     init();
   });
