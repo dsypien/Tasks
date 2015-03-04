@@ -134,15 +134,24 @@ textarea {
     height:100%;
 }
 
+.tasklist p{
+  position: relative;
+}
+
+.move-left {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg); 
+    -moz-transform: rotate(360deg);
+}
+
 .tasklist .input-group-btn,
 .finishedlist .input-group-btn,
 .addtaskrow .input-group-btn{
   padding: 0px;
 }
 
-.tasklist button,
-.finishedlist button,
-.addtaskrow button{
+.input-group-btn button{
   border: none;
   height:100%;
   padding: 0px 15px;
@@ -152,4 +161,58 @@ textarea {
 
 .finishedlist{
   margin-top: 40px;
+}
+
+.fadeLeftAnimation{
+  -webkit-animation: fadeLeft 1s linear;
+  -o-animation: fadeLeft 1s linear;
+  animation: fadeLeft 1s linear;
+}
+
+.fadeLeftAnimation textarea{
+  background-color: #449d44;
+  color: white;
+}
+
+textarea[textarea-fit-content]{
+  padding-top: 12px;
+  padding-bottom: 0px;
+}
+
+.input-group .form-control{
+  margin-bottom: -1px;
+}
+
+@-webkit-keyframes fadeLeft {
+  0% { left: 0px; -webkit-transform: rotate(0deg);}
+  100% { left: -600px; opacity: 0; -webkit-transform: rotate(-150deg);}
+}
+@-o-keyframes fadeLeft {
+  0% { left: 0px; -ms-transform: rotate(0deg); }
+  100% { left: -600px; opacity: 0; -ms-transform: rotate(-150deg);}
+}
+@-moz-keyframes fadeLeft {
+  0% { left: 0px; -o-transform: rotate(0deg);}
+  100% { left: -600px; opacity: 0; -o-transform: rotate(-150deg);}
+}
+@keyframes fadeLeft {
+  0% { left: 0px; transform: rotate(0deg); }
+  100% { left: -600px; opacity: 0; transform: rotate(-150deg);}
+}
+
+@-webkit-keyframes turnGreen {
+  0% { }
+  100% { background: #449d44;}
+}
+@-o-keyframes turnGreen {
+  0% { }
+  100% { background: #449d44;}
+}
+@-moz-keyframes turnGreen {
+  0% { }
+  100% { background: #449d44;}
+}
+@keyframes turnGreen {
+  0% { }
+  100% { background: #449d44;}
 }
