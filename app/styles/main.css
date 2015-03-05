@@ -75,13 +75,15 @@ body {
   }
 }
 
+
+
 .input-group{
-  margin-bottom: 5px;
-}
+/*  margin-top: 5px;
+*/}
 
 .ui-sortable .input-group{
-  padding: 5px 10px;
-  cursor: move;
+/*  padding: 5px 10px;
+*/  cursor: move;
 }
 
 .top-space-50{
@@ -96,6 +98,10 @@ body {
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+}
+
+.project-container h3{
+  float:left;
 }
 
 .project-container button{
@@ -134,6 +140,10 @@ textarea {
     height:100%;
 }
 
+.tasklist {
+  margin-top: 15px;
+}
+
 .tasklist p{
   position: relative;
 }
@@ -163,6 +173,10 @@ textarea {
   margin-top: 40px;
 }
 
+.btn .badge {
+  display: block;
+}
+
 .fadeLeftAnimation{
   -webkit-animation: fadeLeft 1s linear;
   -o-animation: fadeLeft 1s linear;
@@ -177,10 +191,6 @@ textarea {
 textarea[textarea-fit-content]{
   padding-top: 12px;
   padding-bottom: 0px;
-}
-
-.input-group .form-control{
-  margin-bottom: -1px;
 }
 
 @-webkit-keyframes fadeLeft {
