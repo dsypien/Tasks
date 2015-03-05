@@ -76,7 +76,7 @@ body {
 }
 
 .input-group{
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .ui-sortable .input-group{
@@ -184,20 +184,24 @@ textarea[textarea-fit-content]{
 }
 
 @-webkit-keyframes fadeLeft {
-  0% { left: 0px; -webkit-transform: rotate(0deg);}
-  100% { left: -600px; opacity: 0; -webkit-transform: rotate(-150deg);}
+  0% { top: 0px; left: 0px; -webkit-transform: rotate(0deg);}
+  10% {-webkit-transform: rotate(0deg);}
+  100% { top: 100px; left: -600px; opacity: 0; -webkit-transform: rotate(-150deg);}
 }
 @-o-keyframes fadeLeft {
-  0% { left: 0px; -ms-transform: rotate(0deg); }
-  100% { left: -600px; opacity: 0; -ms-transform: rotate(-150deg);}
+  0% { top: 0px; left: 0px; -ms-transform: rotate(0deg); }
+  10% {-ms-transform: rotate(0deg);}
+  100% { top: 100px; left: -600px; opacity: 0; -ms-transform: rotate(-150deg);}
 }
 @-moz-keyframes fadeLeft {
-  0% { left: 0px; -o-transform: rotate(0deg);}
-  100% { left: -600px; opacity: 0; -o-transform: rotate(-150deg);}
+  0% { top: 0px; left: 0px; -o-transform: rotate(0deg);}
+  10% {-o-transform: rotate(0deg);}
+  100% { top: 100px; left: -600px; opacity: 0; -o-transform: rotate(-150deg);}
 }
 @keyframes fadeLeft {
-  0% { left: 0px; transform: rotate(0deg); }
-  100% { left: -600px; opacity: 0; transform: rotate(-150deg);}
+  0% { top: 0px; left: 0px; transform: rotate(0deg); }
+  10% {transform: rotate(0deg);}
+  100% { top: 100px; left: -600px; opacity: 0; transform: rotate(-150deg);}
 }
 
 @-webkit-keyframes turnGreen {

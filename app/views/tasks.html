@@ -1,6 +1,6 @@
 <div class="container">
   <h3>{{project.name}} project</h3>
-  <form role="form" ng-submit="addTask()">
+  <form role="form" ng-submit="addTask()" ng-keyup="$event.keyCode == 13 && addTask()">
     <div class="row">
       <div class="input-group">
         <textarea textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
