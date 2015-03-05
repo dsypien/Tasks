@@ -1,5 +1,5 @@
 angular.module('tasksApp')
-	.directive('textareaFitContent', function($window){
+	.directive('textareaFitContent', function($window, $timeout){
 		function resizeTextArea(element){
 			$(element).height(0).height( $(element)[0].scrollHeight );
 		}
@@ -23,10 +23,11 @@ angular.module('tasksApp')
 				});
 
 				// Resize text area as soon as element is added to DOM
-				setTimeout(function(){
+				$timeout(function(){
 					var element = elem;
 					resizeTextArea(element);
-				});
+				}, 10);
+
 			}
 		};
 	});
