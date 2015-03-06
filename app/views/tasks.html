@@ -1,6 +1,6 @@
 <div class="container">
   <h3>{{project.name}} project</h3>
-  <form role="form" ng-submit="addTask()" ng-keyup="$event.keyCode == 13 && addTask()">
+  <form role="form" ng-submit="addTask()">
     <div class="row">
       <div class="input-group">
         <textarea textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
@@ -11,19 +11,36 @@
         </span>
       </div>
     </div>
-
-    <!-- Task List -->
-    <div class="tasklist" ui-sortable ng-model="project.tasks">
-      <p class="input-group" ng-repeat="task in project.tasks">
-        <span class="input-group-addon">{{$index + 1}}. </span>
-        <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
-        </textarea>
-        <span class="input-group-btn">
-          <button class="btn btn-success glyphicon glyphicon-ok" ng-click="finishTask($index)" aria-label="Complete"></button>
-        </span>
-      </p>
-    </div>
   </form>
+
+  <!-- Task List -->
+  <div class="tasklist" ui-sortable ng-model="project.tasks">
+    <div class="input-group" ng-repeat="task in project.tasks">
+      <span class="input-group-addon">{{$index + 1}}. </span>
+      <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
+      </textarea>
+      <span class="input-group-btn">
+         <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
+           <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
+         </button>
+        <button class="btn btn-success glyphicon glyphicon-ok" ng-click="finishTask($index)" aria-label="Complete"></button>
+      </span>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Finished Tasks Section -->
   <div class="finishedlist" ng-controller="FinishedTasksCtrl" ng-class="getVisibilityClass()" ng-model="finishedTasks">
