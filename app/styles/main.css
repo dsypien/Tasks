@@ -84,6 +84,7 @@ body {
 .ui-sortable .input-group{
 /*  padding: 5px 10px;
 */  cursor: move;
+  padding-bottom: 4px;
 }
 
 .top-space-50{
@@ -171,6 +172,10 @@ textarea {
 
 .finishedlist{
   margin-top: 40px;
+}
+
+textarea{
+  min-height: 35px;
 }
 
 .btn .badge {
