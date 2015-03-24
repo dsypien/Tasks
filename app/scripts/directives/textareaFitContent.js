@@ -26,7 +26,7 @@ angular.module('tasksApp')
 				$timeout(function(){
 					var element = elem;
 					resizeTextArea(element);
-				}, 10);
+				}, 0);
 
 			}
 		};

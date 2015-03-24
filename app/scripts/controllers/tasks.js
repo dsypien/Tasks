@@ -6,6 +6,7 @@ angular.module('tasksApp')
     console.log('current proj: ' + $scope.project);
 
     $scope.addTask = function(){
+        $scope.project.task.comments = [];
     	$scope.project.tasks.push($scope.project.task);
     	$scope.project.task = '';
     };
@@ -13,6 +14,14 @@ angular.module('tasksApp')
     $scope.finishTask = function(index){
     	var task = $scope.project.tasks.splice(index, 1)[0];
     	$scope.project.finishedTasks.push(task);
+    };
+
+    $scope.addComment = function(index){
+        var task = $scope.project.tasks[index];
+    }
+
+    $scope.showComments = function(index){
+        console.log("Show comments");
     };
 
     $scope.$watch('project', function(){

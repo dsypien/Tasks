@@ -3,7 +3,7 @@
   <form role="form" ng-submit="addTask()">
     <div class="row">
       <div class="input-group">
-        <textarea textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+        <textarea enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
         </textarea>
         <span class="input-group-btn">
           <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
@@ -15,6 +15,7 @@
 
   <!-- Task List -->
   <div class="tasklist" ui-sortable ng-model="project.tasks">
+    <h2 >To do:</h2>
     <div class="input-group" ng-repeat="task in project.tasks">
       <span class="input-group-addon">{{$index + 1}}. </span>
       <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
