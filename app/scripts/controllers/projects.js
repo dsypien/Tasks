@@ -8,6 +8,7 @@ angular.module('tasksApp')
 
 		$scope.create = function(){
 			$scope.project.tasks = [];
+			$scope.project.workingTasks = [];
 			$scope.project.finishedTasks = []; 
 			$scope.projects.push($scope.project);
 			$scope.project = '';
