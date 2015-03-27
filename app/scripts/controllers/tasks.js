@@ -11,10 +11,11 @@ angular.module('tasksApp')
     	$scope.project.task = '';
     };
 
-    $scope.finishTask = function(index){
-    	var task = $scope.project.tasks.splice(index, 1)[0];
-    	$scope.project.finishedTasks.push(task);
-    };
+
+    $scope.moveTask = function(index, fromAry, toAry){
+        var task = fromAry.splice(index, 1)[0];
+        toAry.push(task);
+    }
 
     $scope.addComment = function(index){
         var task = $scope.project.tasks[index];
@@ -22,6 +23,20 @@ angular.module('tasksApp')
 
     $scope.showComments = function(index){
         console.log("Show comments");
+    };
+
+    // Delete Task from finished task list
+    $scope.removeTask = function(index){
+        $scope.project.finishedTasks.splice(index, 1);
+    };
+
+    $scope.getVisibilityClass = function(){
+        if($scope.project.finishedTasks.length === 0){
+            return 'hidden';
+        }
+        else{
+            return '';
+        }
     };
 
     $scope.$watch('project', function(){

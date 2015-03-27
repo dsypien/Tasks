@@ -1,60 +1,68 @@
 <div class="container">
-  <h3>{{project.name}} project</h3>
-  <form role="form" ng-submit="addTask()">
-    <div class="row">
-      <div class="input-group">
-        <textarea enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+  <h1>{{project.name}} project</h1>
+
+  <!-- Task List -->
+  <div class="list_container">
+    <h2>To do:</h2>
+    <div class="tasklist" ui-sortable ng-model="project.tasks">
+      <div class="input-group" ng-repeat="task in project.tasks">
+        <span class="input-group-addon">{{$index + 1}}. </span>
+        <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
         </textarea>
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
-          </button>
+           <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
+             <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
+           </button>
+          <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.tasks, project.finishedTasks)" aria-label="Complete"></button>
         </span>
       </div>
     </div>
-  </form>
+    <form role="form" ng-submit="addTask()">
+      <div>
+        <div class="input-group">
+          <textarea enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+          </textarea>
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
+            </button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
 
-  <!-- Task List -->
-  <div class="tasklist" ui-sortable ng-model="project.tasks">
-    <h2 >To do:</h2>
-    <div class="input-group" ng-repeat="task in project.tasks">
-      <span class="input-group-addon">{{$index + 1}}. </span>
-      <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
-      </textarea>
-      <span class="input-group-btn">
-         <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
-           <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
-         </button>
-        <button class="btn btn-success glyphicon glyphicon-ok" ng-click="finishTask($index)" aria-label="Complete"></button>
-      </span>
+
+  <!-- Finished List -->
+  <div class="list_container">
+    <h2 ng-class="getVisibilityClass()">Finished:</h2>
+    <div class="finishedlist" ui-sortable ng-model="project.finishedTasks">
+      <div class="input-group" ng-repeat="task in project.finishedTasks">
+        <span class="input-group-addon">{{$index+1}}</span>
+        <textarea textarea-fit-content type="text" ng-model='task.name' class="form-control">
+        </textarea>
+        <span class="input-group-btn">
+          <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
+             <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
+           </button>
+          <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.finishedTasks, project.tasks)"></button>
+          <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
+        </span>
+      </div>
     </div>
   </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-  <!-- Finished Tasks Section -->
-  <div class="finishedlist" ng-controller="FinishedTasksCtrl" ng-class="getVisibilityClass()" ng-model="finishedTasks">
-    <h2 >Completed Tasks:</h2>
-    <p class="input-group row" ng-repeat="finishedTask in project.finishedTasks">
-      <span class="input-group-addon">{{$index+1}}</span>
-      <textarea textarea-fit-content type="text" ng-model='finishedTask.name' class="form-control">
-      </textarea>
-      <span class="input-group-btn">
-        <button type="button" class='btn btn-primary glyphicon glyphicon-list' aria-label="Add back to To Do list" ng-click="revertTask($index)"></button>
-        <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
-      </span>
-    </p>
   </div>
 
 </div>
