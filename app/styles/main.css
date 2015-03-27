@@ -81,7 +81,8 @@ body {
 /*  margin-top: 5px;
 */}
 
-.ui-sortable .input-group{
+.ui-sortable .input-group,
+.finishedlist .input-group{
 /*  padding: 5px 10px;
 */  cursor: move;
   padding-bottom: 4px;
@@ -141,12 +142,20 @@ textarea {
     height:100%;
 }
 
-.tasklist {
-  margin-top: 15px;
-}
 
 .tasklist p{
   position: relative;
+}
+
+.list_container{
+  width:50%;
+  float:left;
+}
+
+.list_container:first-of-type {
+  width:48%;
+  float:left;  
+  margin-right:2%;
 }
 
 .move-left {
@@ -168,11 +177,7 @@ textarea {
   padding: 0px 15px;
   margin-top: -2px;
   border-radius: 0px 4px 4px 0px;
-}
-
-.finishedlist{
-  margin-top: 40px;
-}
+} 
 
 textarea{
   min-height: 35px;
