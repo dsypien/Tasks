@@ -1,6 +1,7 @@
 /* Space out content a bit */
 body {
   color: #737373;
+  background: url(http://subtlepatterns.com/patterns/square_bg.png);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -95,7 +96,7 @@ body {
 .project-container{
   padding: 10px 20px;
   color: #fff;
-  background-color: #5bc0de;
+  background-color: #3af;
   border-color: #46b8da;
   border-radius: 10px;
   overflow: hidden;
@@ -107,6 +108,7 @@ body {
 }
 
 .project-container button{
+  clear: both;
   float: right;
 }
 
@@ -129,6 +131,10 @@ body {
   margin: 50px;
 }
 
+h1{
+  margin-bottom: 30px;
+}
+
 h2{
   margin-bottom: 15px;
 }
@@ -148,14 +154,42 @@ textarea {
 }
 
 .list_container{
-  width:50%;
-  float:left;
+  float: left;
+  background-color: #ddd;
+  width: 50%;
+  
+  border-radius: 8px;
+}
+
+.list_body{
+  padding: 12px;
+  min-height: 80px;
+}
+
+.list_container h2{
+  background-color: #3af;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  color: #fff;
 }
 
 .list_container:first-of-type {
   width:48%;
   float:left;  
   margin-right:2%;
+}
+
+#taskbody form{
+  margin-top:10px;
+}
+
+#finished_list_container{
+  clear:both;
+  margin-top:50px;
+  width:100%;
 }
 
 .move-left {
