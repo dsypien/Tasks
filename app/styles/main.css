@@ -1,7 +1,7 @@
 /* Space out content a bit */
 body {
   color: #737373;
-  background: url(http://subtlepatterns.com/patterns/square_bg.png);
+  background: url(../images/square_bg.png);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
