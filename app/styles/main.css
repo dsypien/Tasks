@@ -33,12 +33,48 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+
+.list_container{
+  width:100%;
+  background-color: #ddd;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
     max-width: 1200px;
   }
+
+  .list_container{
+    float: left;
+    width: 50%;
+  }
+
+  .list_container:first-of-type {
+    width:48%;
+    float:left;  
+    margin-right:2%;
+  }
 }
+
+
+.list_container h2{
+  background-color: #3af;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  color: #fff;
+}
+
+#finished_list_container{
+  clear:both;
+  width:100%;
+}
+
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -153,43 +189,13 @@ textarea {
   position: relative;
 }
 
-.list_container{
-  float: left;
-  background-color: #ddd;
-  width: 50%;
-  
-  border-radius: 8px;
-}
-
 .list_body{
   padding: 12px;
   min-height: 80px;
 }
 
-.list_container h2{
-  background-color: #3af;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-  color: #fff;
-}
-
-.list_container:first-of-type {
-  width:48%;
-  float:left;  
-  margin-right:2%;
-}
-
 #taskbody form{
   margin-top:10px;
-}
-
-#finished_list_container{
-  clear:both;
-  margin-top:50px;
-  width:100%;
 }
 
 .move-left {
