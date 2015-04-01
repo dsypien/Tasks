@@ -7,7 +7,7 @@ angular.module('tasksApp')
 
     $scope.addTask = function(){
         $scope.project.task.comments = [];
-    	$scope.project.tasks.push($scope.project.task);
+    	$scope.project.listAry[0].push($scope.project.task);
     	$scope.project.task = '';
     };
 
@@ -18,7 +18,8 @@ angular.module('tasksApp')
     }
 
     $scope.addComment = function(index){
-        var task = $scope.project.tasks[index];
+        var toDoList = $scope.project.listAry[0];
+        var task = toDoList[index];
     }
 
     $scope.showComments = function(index){
@@ -27,17 +28,27 @@ angular.module('tasksApp')
 
     // Delete Task from finished task list
     $scope.removeTask = function(index){
-        $scope.project.finishedTasks.splice(index, 1);
+        $scope.project.listAry[2].splice(index, 1);
     };
 
     $scope.getVisibilityClass = function(){
-        if($scope.project.finishedTasks.length === 0){
+        if($scope.project.listAry[2].length === 0){
             return 'hidden';
         }
         else{
             return '';
         }
     };
+
+    function createOptions (listName) {
+        var _listName = listName;
+        return{
+          placeholder: "task-container",
+          connectWith: ".sortable-container"
+        }
+    }
+
+    $scope.sortableOptionsList = [createOptions('toDo'), createOptions('working'), createOptions('finished')];
 
     $scope.$watch('project', function(){
     	projectStoreService.save($scope.project);

@@ -5,8 +5,8 @@
   <div class="list_container">
     <h2>To do</h2>
     <div class="list_body">
-      <div class="tasklist" ui-sortable ng-model="project.tasks">
-        <div class="input-group" ng-repeat="task in project.tasks">
+      <div class="tasklist sortable-container" ui-sortable="sortableOptionsList[0]" ng-model="project.listAry[0]">
+        <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[0]">
           <span class="input-group-addon">{{$index + 1}}. </span>
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
@@ -14,7 +14,7 @@
              <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
                <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
              </button>
-            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.tasks, project.workingTasks)" aria-label="Complete"></button>
+            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
           </span>
         </div>
       </div>
@@ -37,8 +37,8 @@
   <div class="list_container">
     <h2>Working on</h2>
     <div class="list_body">
-      <div class="workinglist" ui-sortable ng-model="project.workingTasks">
-        <div class="input-group" ng-repeat="task in project.workingTasks">
+      <div class="workinglist sortable-container" ui-sortable="sortableOptionsList[1]" ng-model="project.listAry[1]">
+        <div class="input-group" ng-repeat="task in project.listAry[1]">
           <span class="input-group-addon">{{$index + 1}}. </span>
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
@@ -46,8 +46,8 @@
              <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
                <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
              </button>
-             <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.workingTasks, project.tasks)"></button>
-            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.workingTasks, project.finishedTasks)" aria-label="Complete"></button>
+             <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
+            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
           </span>
         </div>
       </div>
@@ -59,8 +59,8 @@
   <div id="finished_list_container" class="list_container">
     <h2>Finished</h2>
     <div class="list_body">
-      <div class="finishedlist" ui-sortable ng-model="project.finishedTasks">
-        <div class="input-group" ng-repeat="task in project.finishedTasks">
+      <div class="finishedlist sortable-container" ui-sortable="sortableOptionsList[2]" ng-model="project.listAry[2]">
+        <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[2]">
           <span class="input-group-addon">{{$index+1}}</span>
           <textarea textarea-fit-content type="text" ng-model='task.name' class="form-control">
           </textarea>
@@ -68,7 +68,7 @@
             <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
                <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
              </button>
-            <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.finishedTasks, project.workingTasks)"></button>
+            <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
           </span>
         </div>

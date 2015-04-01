@@ -7,9 +7,11 @@ angular.module('tasksApp')
 		$scope.projects = projectsInStore || [];
 
 		$scope.create = function(){
-			$scope.project.tasks = [];
-			$scope.project.workingTasks = [];
-			$scope.project.finishedTasks = []; 
+			var tasks = [];
+			var workingTasks = [];
+			var finishedTasks = [];
+
+			$scope.project.listAry = [tasks, workingTasks, finishedTasks];;
 			$scope.projects.push($scope.project);
 			$scope.project = '';
 		};
