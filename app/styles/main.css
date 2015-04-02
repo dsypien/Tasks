@@ -149,6 +149,13 @@ body {
   padding-bottom: 4px;
 }
 
+.ui-sortable-helper{
+  -ms-transform: rotate(-5deg); /* IE 9 */
+  -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+  transform: rotate(-5deg);
+  width:35% !important;
+}
+
 .top-space-50{
   padding-top: 50px;
 }
