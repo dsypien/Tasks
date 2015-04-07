@@ -1,5 +1,7 @@
+'use strict';
+
 angular.module('tasksApp')
-	.directive('textareaFitContent', function($window, $timeout){
+	.directive('textareaFitContent', ['$window', '$timeout', function($window, $timeout){
 		function resizeTextArea(element){
 			$(element).height(0).height( $(element)[0].scrollHeight );
 		}
@@ -7,7 +9,7 @@ angular.module('tasksApp')
 		return{
 			// Restrict directive to attributes
 			restrict: 'A', 
-			link: function(scope, elem, attrs){
+			link: function(scope, elem){
 				// Resize text area on key up
 				elem.bind('keyup', function(event){
 					var element = event.target;
@@ -30,4 +32,4 @@ angular.module('tasksApp')
 
 			}
 		};
-	});
+	}]);

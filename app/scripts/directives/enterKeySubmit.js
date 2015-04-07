@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('tasksApp')
 	.directive('enterKeySubmit', function(){
 		return{

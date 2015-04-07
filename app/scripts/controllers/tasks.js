@@ -1,5 +1,5 @@
 angular.module('tasksApp')
-  .controller('TasksCtrl', function ($scope, projectStoreService) {
+  .controller('TasksCtrl', ['$scope', 'projectStoreService', function ($scope, projectStoreService) {
     'use strict';
 
     $scope.project = projectStoreService.getCurrent();
@@ -11,19 +11,9 @@ angular.module('tasksApp')
     	$scope.project.task = '';
     };
 
-
     $scope.moveTask = function(index, fromAry, toAry){
         var task = fromAry.splice(index, 1)[0];
         toAry.push(task);
-    }
-
-    $scope.addComment = function(index){
-        var toDoList = $scope.project.listAry[0];
-        var task = toDoList[index];
-    }
-
-    $scope.showComments = function(index){
-        console.log("Show comments");
     };
 
     // Delete Task from finished task list
@@ -40,12 +30,11 @@ angular.module('tasksApp')
         }
     };
 
-    function createOptions (listName) {
-        var _listName = listName;
+    function createOptions () {
         return{
-          placeholder: "task-container",
-          connectWith: ".sortable-container"
-        }
+          placeholder: 'task-container',
+          connectWith: '.sortable-container'
+        };
     }
 
     $scope.sortableOptionsList = [createOptions('toDo'), createOptions('working'), createOptions('finished')];
@@ -53,4 +42,4 @@ angular.module('tasksApp')
     $scope.$watch('project', function(){
     	projectStoreService.save($scope.project);
     }, true);
-  });
+  }]);

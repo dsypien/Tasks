@@ -1,5 +1,5 @@
 angular.module('tasksApp')
-	.controller('ProjectsCtrl', function($scope, $location, projectStoreService){
+	.controller('ProjectsCtrl', ['$scope', '$location', 'projectStoreService', function($scope, $location, projectStoreService){
 		'use strict';
 		
 		var projectsInStore = projectStoreService.getProjects();
@@ -11,7 +11,7 @@ angular.module('tasksApp')
 			var workingTasks = [];
 			var finishedTasks = [];
 
-			$scope.project.listAry = [tasks, workingTasks, finishedTasks];;
+			$scope.project.listAry = [tasks, workingTasks, finishedTasks];
 			$scope.projects.push($scope.project);
 			$scope.project = '';
 		};
@@ -29,4 +29,4 @@ angular.module('tasksApp')
 		$scope.$watch('projects',function(){
 			projectStoreService.save('projects', $scope.projects);
 		}, true);
-	});
+	}]);

@@ -1,6 +1,6 @@
 // This controller is nested within the TasksCtrl controller
 angular.module('tasksApp')
-	.controller('FinishedTasksCtrl', function($scope){
+	.controller('FinishedTasksCtrl', ['$scope', function($scope){
 		'use strict';
 		
 		$scope.revertTask = function(index){
@@ -21,4 +21,4 @@ angular.module('tasksApp')
 	    		return '';
 	    	}
 	    };
-	});
+	}]);
