@@ -11,10 +11,8 @@
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
           <span class="input-group-btn">
-             <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
-               <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
-             </button>
-            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
+            <button class="btn btn-primary glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
+             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[0])"></button>
           </span>
         </div>
       </div>
@@ -43,11 +41,9 @@
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
           <span class="input-group-btn">
-             <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
-               <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
-             </button>
-             <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
-            <button class="btn btn-success glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
+             <button type="button" class='btn btn-info glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
+            <button class="btn btn-primary glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
+             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[1])"></button>
           </span>
         </div>
       </div>
@@ -65,11 +61,8 @@
           <textarea textarea-fit-content type="text" ng-model='task.name' class="form-control">
           </textarea>
           <span class="input-group-btn">
-            <button class="btn btn-info glyphicon glyphicon-comment" data-toggle="modal" data-target="#commentModal" ng-click="showComments($index)" aria-label="Comment">
-               <span class="badge" ng-show="{{task.comment.length}}">{{task.comment.length}}</span>
-             </button>
-            <button type="button" class='btn btn-primary glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
-            <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index)"></button>
+            <button type="button" class='btn btn-info glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
+            <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[2])"></button>
           </span>
         </div>
       </div>

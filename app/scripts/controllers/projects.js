@@ -25,7 +25,6 @@ angular.module('tasksApp')
 			$location.path('/project/' + index);
 		};
 
-		// Save any changes to local storage
 		$scope.$watch('projects',function(){
 			projectStoreService.save('projects', $scope.projects);
 		}, true);

@@ -17,8 +17,8 @@ angular.module('tasksApp')
     };
 
     // Delete Task from finished task list
-    $scope.removeTask = function(index){
-        $scope.project.listAry[2].splice(index, 1);
+    $scope.removeTask = function(index, targetAry){
+        targetAry.splice(index, 1);
     };
 
     $scope.getVisibilityClass = function(){
