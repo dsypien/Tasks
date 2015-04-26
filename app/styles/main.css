@@ -65,6 +65,28 @@ body {
   cursor: move;
 }
 
+
+@media (min-width: 600px){
+  .col-md-3 {
+    width: 50%;
+    float:left;
+  }
+}
+
+@media (min-width: 850px){
+  .col-md-3 {
+    width: 33.33333%;
+    float:left;
+  }
+}
+
+@media (min-width: 1000px){
+  .col-md-3 {
+    width: 25%;
+    float:left;
+  }
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
