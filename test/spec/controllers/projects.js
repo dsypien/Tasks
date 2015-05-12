@@ -3,59 +3,53 @@
 describe('Controller: ProjectsCtrl', function () {
 
   // load the controller's module
-  beforeEach(angular.module('tasksApp'));
-
-  var scope,
-    location,
-    mockProjectStoreService,
-    projectsController;
-
-  // Create Mock projectService
-  angular.module(function($provide){
-    $provide.service('projectStoreService', function(){
-        return{
-          getProjects: function(){
-            jasmine.createSpy('getProjects').andCallFake(function(){
-              //add fake implementation here
-            });
-          },
-          getCurrent: function(){
-            jasmine.createSpy('getCurrent').andCallFake(function(){
-              //add fake implementation here
-            });
-          },
-          save: function(project){
-            jasmine.createSpy('save').andCallFake(function(project){
-              //add fake implementation here
-            });
-          },
-          setCurrent: function(project){
-            jasmine.createSpy('setCurrent').andCallFake(function(project){
-              //add fake implementation here
-            });
-          }
-        }
-    });
+  beforeEach(function(){
+    module('tasksApp');
   });
 
+  var scope,
+    projectsController;
+
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, projectStoreService) {
+  beforeEach(inject(function ($controller, $rootScope, $location, projectStoreService) {
+    this.$location = $location;
     scope = $rootScope.$new();
+
     projectsController = $controller('ProjectsCtrl', {
       $scope: scope,
-      mockProjectStoreService : projectStoreService
+      $location: $location,
+      projectStoreService : projectStoreService
     });
   }));
 
   it('can create a new project', function(){
+    expect(scope.projects.length).toBe(0);
 
+    //act
+    scope.create();
+
+    //assert
+    expect(scope.projects.length).toBe(1);
   });
 
   it('can delete an existing project', function(){
+    //arrange
+    expect(scope.projects.length).toBe(0);
+    scope.create();
+    expect(scope.projects.length).toBe(1);
 
+    //act
+    scope.delete(0);
+
+    //assert
+    expect(scope.projects.length).toBe(0);
   });
 
   it('navigates to taks on click of a project', function(){
+
+  });
+
+  it('saves project when the project is updated', function(){
 
   });
 

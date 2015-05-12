@@ -5,6 +5,7 @@ angular.module('tasksApp')
 		var projectsInStore = projectStoreService.getProjects();
 
 		$scope.projects = projectsInStore || [];
+		$scope.project = {};
 
 		$scope.create = function(){
 			var tasks = [];
