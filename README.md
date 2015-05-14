@@ -1,5 +1,5 @@
-# Tasks ![alt tag](https://travis-ci.org/dsypien/Tasks.svg?branch=master)
-=======
+![alt tag](https://travis-ci.org/dsypien/Tasks.svg?branch=master)
+# Tasks
 Tasks is a simple kanban web app that helps you keep track of your projects.
 
 Dependencies
