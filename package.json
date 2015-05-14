@@ -2,7 +2,8 @@
   "name": "tasks",
   "version": "0.0.0",
   "dependencies": {
-    "karma-chrome-launcher": "^0.1.10"
+    "karma-chrome-launcher": "^0.1.10",
+    "protractor": "^2.0.0"
   },
   "devDependencies": {
     "grunt": "^0.4.1",

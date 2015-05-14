@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: ProjectsCtrl', function () {
+describe('ProjectsCtrl', function () {
 
   // load the controller's module
   beforeEach(function(){
@@ -8,28 +8,31 @@ describe('Controller: ProjectsCtrl', function () {
   });
 
   var scope,
+    location,
     projectsController;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $location, projectStoreService) {
-    this.$location = $location;
+    location = $location;
     scope = $rootScope.$new();
 
     projectsController = $controller('ProjectsCtrl', {
       $scope: scope,
-      $location: $location,
+      location: $location,
       projectStoreService : projectStoreService
     });
   }));
 
   it('can create a new project', function(){
-    expect(scope.projects.length).toBe(0);
+    //arrange
+    scope.project.name = 'test project';
 
     //act
     scope.create();
 
     //assert
     expect(scope.projects.length).toBe(1);
+    expect(scope.projects[0].name).toBe('test project');
   });
 
   it('can delete an existing project', function(){
@@ -45,12 +48,16 @@ describe('Controller: ProjectsCtrl', function () {
     expect(scope.projects.length).toBe(0);
   });
 
-  it('navigates to taks on click of a project', function(){
 
-  });
+  /* SHOULD BE END TO END TEST */
+  it('navigates to tasks on go to tasks', inject( function(){
+    //arrange
+    scope.project.name = 'test project';
+    scope.create();
 
-  it('saves project when the project is updated', function(){
+    //act
+    scope.goToTasks(0);
 
-  });
-
+    //assert
+  }));
 });
