@@ -29,10 +29,30 @@ Build
   $ grunt build
 ```
 
-Run Tests
+Run Unit Tests
 ------------
+Running unit tests:
 ```bash
   $ grunt test
+```
+
+Run end to end tests.
+-----------
+
+Install protractor if you do not aleady have it:
+```bash
+  $ npm install -g protractor
+```
+
+Start up the Selenium Server:
+```bash
+  $ webdriver-manager update
+```
+
+
+To run the testsfrom the projects root directory type:
+```bash
+  $ protractor test/e2e/conf.js
 ```
 
 Start Server
