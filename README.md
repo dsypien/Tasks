@@ -31,26 +31,22 @@ Build
 
 Run Unit Tests
 ------------
-Running unit tests:
 ```bash
   $ grunt test
 ```
 
-Run end to end tests.
+Run End To End Tests
 -----------
-
-Install protractor if you do not aleady have it:
+Install Protractor if you don't already have it:
 ```bash
   $ npm install -g protractor
 ```
-
 Start up the Selenium Server:
 ```bash
   $ webdriver-manager update
+  $ webdriver-manager start
 ```
-
-
-To run the testsfrom the projects root directory type:
+To run the tests, from the projects root directory type:
 ```bash
   $ protractor test/e2e/conf.js
 ```
