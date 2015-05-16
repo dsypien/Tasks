@@ -3,10 +3,17 @@ angular.module('tasksApp')
     'use strict';
 
     $scope.project = projectStoreService.getCurrent();
-    console.log('current proj: ' + $scope.project);
+    $scope.isOneColumn = window.innerWidth < 768;
+
+    $scope.$watch(function(){
+        return window.innerWidth;
+    }, function(){
+        //Gets called when window.innerWidth Changes
+       $scope.isOneColumn = window.innerWidth < 768;
+       console.log(window.innerWidth);
+    });
 
     $scope.addTask = function(){
-        $scope.project.task.comments = [];
     	$scope.project.listAry[0].push($scope.project.task);
     	$scope.project.task = '';
     };
@@ -16,7 +23,7 @@ angular.module('tasksApp')
         toAry.push(task);
     };
 
-    // Delete Task from finished task list
+    // Delete Task from finished target list
     $scope.removeTask = function(index, targetAry){
         targetAry.splice(index, 1);
     };
