@@ -30,3 +30,5 @@ angular.module('tasksApp')
 			projectStoreService.save('projects', $scope.projects);
 		}, true);
 	}]);
+
+	

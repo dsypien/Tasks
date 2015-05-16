@@ -47,17 +47,4 @@ describe('ProjectsCtrl', function () {
     //assert
     expect(scope.projects.length).toBe(0);
   });
-
-
-  /* SHOULD BE END TO END TEST */
-  it('navigates to tasks on go to tasks', inject( function(){
-    //arrange
-    scope.project.name = 'test project';
-    scope.create();
-
-    //act
-    scope.goToTasks(0);
-
-    //assert
-  }));
 });
