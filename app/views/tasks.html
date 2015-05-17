@@ -11,7 +11,7 @@
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
           <span class="input-group-btn">
-            <button class="btn btn-primary glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
+            <button class="btn btn-primary glyphicon" ng-class="{'glyphicon-arrow-down': isOneColumn == true, 'glyphicon-arrow-right': !isOneColumn}" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
              <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[0])"></button>
           </span>
         </div>
