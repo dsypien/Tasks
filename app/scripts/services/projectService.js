@@ -4,7 +4,7 @@ angular.module('tasksApp')
 	.service('projectStoreService', ['$routeParams', 'localStorageService', function( $routeParams,localStorageService){
 		var currentProject ;
 		var currentProjectIndex = -1;
-		var projectsInStore = localStorageService.get('projects');
+		var projectsInStore = localStorageService.get('projects') || [];
 
 		return{
 			getProjects: function(){
