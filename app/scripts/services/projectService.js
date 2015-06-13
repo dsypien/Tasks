@@ -22,7 +22,7 @@ angular.module('tasksApp')
 			 	localStorageService.set('projects', projectsInStore);
 			 },
 			setCurrent : function(project){
-				currentProject = project;
+				currentProject = project; 
 			}
 		};
 	}]);

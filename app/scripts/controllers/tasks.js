@@ -10,7 +10,6 @@ angular.module('tasksApp')
     }, function(){
         //Gets called when window.innerWidth Changes
        $scope.isOneColumn = window.innerWidth < 768;
-       console.log(window.innerWidth);
     });
 
     $scope.addTask = function(){
@@ -23,7 +22,6 @@ angular.module('tasksApp')
         toAry.push(task);
     };
 
-    // Delete Task from finished target list
     $scope.removeTask = function(index, targetAry){
         targetAry.splice(index, 1);
     };
