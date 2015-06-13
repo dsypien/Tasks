@@ -1,5 +1,5 @@
 # Tasks [![Build Status](https://travis-ci.org/dsypien/Tasks.svg?branch=master)](https://travis-ci.org/dsypien/Tasks)
-Tasks is a simple kanban web app that helps you keep track of your projects.
+Tasks is a simple kanban web app written in angular.js, that helps you keep track of your projects.  It is purely front-end and utilizes the browsers local storages.  As a user works on adding or updating their projects and tasks, all their data is saved automatically in local storage.  I wrote it because I wanted a really simple and barebones kan ban app for projects that I'd be tackling solo. 
 
 Dependencies
 ------------
