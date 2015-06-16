@@ -98,8 +98,8 @@ body {
     width: 50%;
   }
 
-  .list_container:first-of-type {
-    width:48%;
+  #backlog_lc{
+    width:48% !important;
     float:left;  
     margin-right:2%;
   }
@@ -252,9 +252,13 @@ textarea {
   margin-top:10px;
 }
 
-#taskbody h1{
-  width: 90%;
-  float:right;
+#editable_proj_name{
+  margin:14px 0px 20px 20px;
+  width: 80%;
+  float:left;
+  border-style: none;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 #editbtn{
@@ -264,6 +268,13 @@ textarea {
 
 .clear{
   clear:both;
+}
+
+ {
+  font-size: 36px;
+  width: 90%;
+  float: right;
+  margin-bottom: 30px;
 }
 
 .move-left {
