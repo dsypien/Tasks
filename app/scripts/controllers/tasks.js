@@ -4,6 +4,7 @@ angular.module('tasksApp')
 
     $scope.project = projectStoreService.getCurrent();
     $scope.isOneColumn = window.innerWidth < 768;
+    $scope.isReadOnlyEditProjectName = true;
 
     $scope.$watch(function(){
         return window.innerWidth;
@@ -33,6 +34,10 @@ angular.module('tasksApp')
         else{
             return '';
         }
+    };
+
+    $scope.enableProjectNameEdit = function(){
+
     };
 
     function createOptions () {
