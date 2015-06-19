@@ -36,10 +36,6 @@ angular.module('tasksApp')
         }
     };
 
-    $scope.enableProjectNameEdit = function(){
-
-    };
-
     function createOptions () {
         return{
           placeholder: 'task-container',

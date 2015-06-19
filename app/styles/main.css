@@ -33,6 +33,9 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.noborder{
+    border-style: none;
+}
 
 .list_container{
   width:100%;
@@ -256,7 +259,6 @@ textarea {
   margin:14px 0px 20px 20px;
   width: 80%;
   float:left;
-  border-style: none;
   font-size: 36px;
   font-weight: bold;
 }
