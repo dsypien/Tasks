@@ -264,6 +264,7 @@ textarea {
 }
 
 #editbtn{
+  padding:4px;
   margin-top:30px;
   float:left;
 }
