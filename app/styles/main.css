@@ -159,6 +159,10 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+
+  .ui-sortable-helper{
+    width:35% !important;
+  }
 }
 
 
@@ -178,7 +182,6 @@ body {
   -ms-transform: rotate(-5deg); /* IE 9 */
   -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
   transform: rotate(-5deg);
-  width:35% !important;
 }
 
 .top-space-50{

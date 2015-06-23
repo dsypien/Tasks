@@ -24,7 +24,7 @@
       <form role="form" ng-submit="addTask()">
         <div>
           <div class="input-group">
-            <textarea enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+            <textarea textarea-fit-content enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
             </textarea>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
@@ -46,8 +46,8 @@
           <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
           </textarea>
           <span class="input-group-btn">
-             <button type="button" class='btn btn-info glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
-            <button class="btn btn-primary glyphicon glyphicon-arrow-right" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
+             <button type="button" ng-class="{'glyphicon-arrow-up': isOneColumn == true, 'glyphicon-arrow-left': !isOneColumn}"  class='btn btn-info glyphicon' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
+            <button ng-class="{'glyphicon-arrow-down': isOneColumn == true, 'glyphicon-arrow-right': !isOneColumn}" class="btn btn-primary glyphicon" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
              <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[1])"></button>
           </span>
         </div>
@@ -66,7 +66,7 @@
           <textarea textarea-fit-content type="text" ng-model='task.name' class="form-control">
           </textarea>
           <span class="input-group-btn">
-            <button type="button" class='btn btn-info glyphicon glyphicon-arrow-left' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
+            <button type="button" ng-class="{'glyphicon-arrow-up': isOneColumn == true, 'glyphicon-arrow-left': !isOneColumn}" class='btn btn-info glyphicon' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[2])"></button>
           </span>
         </div>
