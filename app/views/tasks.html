@@ -7,71 +7,39 @@
   <div class="clear"></div>
 
   <!-- Task List -->
-  <div id="backlog_lc" class="list_container">
-    <h2>To do</h2>
-    <div class="list_body">
-      <div class="tasklist sortable-container" ui-sortable="sortableOptionsList[0]" ng-model="project.listAry[0]">
-        <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[0]">
-          <span class="input-group-addon">{{$index + 1}}. </span>
-          <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
-          </textarea>
-          <span class="input-group-btn">
-            <button class="btn btn-primary glyphicon" ng-class="{'glyphicon-arrow-down': isOneColumn == true, 'glyphicon-arrow-right': !isOneColumn}" ng-click="moveTask($index, project.listAry[0], project.listAry[1])" aria-label="Complete"></button>
-             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[0])"></button>
-          </span>
-        </div>
-      </div>
-      <form role="form" ng-submit="addTask()">
-        <div>
-          <div class="input-group">
-            <textarea textarea-fit-content enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+  <div ng-repeat='tasklist in project.listAry'>
+    <div id="backlog_lc" class="list_container">
+      <h2>To do</h2>
+      <div class="list_body">      
+        <div class="tasklist sortable-container" ui-sortable="sortableOptionsList[$index]" ng-model="project.listAry[$index]">
+          <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[$index]">
+            <span class="input-group-addon">{{$index + 1}}. </span>
+            <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
             </textarea>
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
-              </button>
+              <button ng-hide='$parent.$first' type="button" ng-class="{'glyphicon-arrow-up': isOneColumn == true, 'glyphicon-arrow-left': !isOneColumn}"  class='btn btn-info glyphicon' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[$parent.$index], project.listAry[$parent.$index - 1])"></button>
+              <button ng-hide='$parent.$last' ng-class="{'glyphicon-arrow-down': isOneColumn == true, 'glyphicon-arrow-right': !isOneColumn}" class="btn btn-primary glyphicon" ng-click="moveTask($index, project.listAry[$parent.$index], project.listAry[$parent.$index + 1])" aria-label="Complete"></button>
+               <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[$parent.$index])"></button>
             </span>
           </div>
         </div>
-      </form>
-    </div>
-  </div>
 
-  <!-- Working On List -->
-  <div class="list_container">
-    <h2>Working on</h2>
-    <div class="list_body">
-      <div class="workinglist sortable-container" ui-sortable="sortableOptionsList[1]" ng-model="project.listAry[1]">
-        <div class="input-group" ng-repeat="task in project.listAry[1]">
-          <span class="input-group-addon">{{$index + 1}}. </span>
-          <textarea textarea-fit-content type="text" ng-model="task.name" class="form-control move-left">
-          </textarea>
-          <span class="input-group-btn">
-             <button type="button" ng-class="{'glyphicon-arrow-up': isOneColumn == true, 'glyphicon-arrow-left': !isOneColumn}"  class='btn btn-info glyphicon' aria-label="Add back to To Do list" ng-click="  moveTask($index, project.listAry[1], project.listAry[0])"></button>
-            <button ng-class="{'glyphicon-arrow-down': isOneColumn == true, 'glyphicon-arrow-right': !isOneColumn}" class="btn btn-primary glyphicon" ng-click="moveTask($index, project.listAry[1], project.listAry[2])" aria-label="Complete"></button>
-             <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[1])"></button>
-          </span>
-        </div>
+        <!--ONLY SHOWS ON FIRST TASK LIST-->
+        <form ng-show='$first' role="form" ng-submit="addTask()">
+          <div>
+            <div class="input-group">
+              <textarea textarea-fit-content enter-key-submit="addTask()" textarea-fit-content type="text" ng-model="project.task.name" placeholder="Whachu need to do?" class="form-control">
+              </textarea>
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary glyphicon glyphicon-plus">
+                </button>
+              </span>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
-
-  <!-- Finished List -->
-  <div id="finished_list_container" class="list_container">
-    <h2>Finished</h2>
-    <div class="list_body">
-      <div class="finishedlist sortable-container" ui-sortable="sortableOptionsList[2]" ng-model="project.listAry[2]">
-        <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[2]">
-          <span class="input-group-addon">{{$index+1}}</span>
-          <textarea textarea-fit-content type="text" ng-model='task.name' class="form-control">
-          </textarea>
-          <span class="input-group-btn">
-            <button type="button" ng-class="{'glyphicon-arrow-up': isOneColumn == true, 'glyphicon-arrow-left': !isOneColumn}" class='btn btn-info glyphicon' aria-label="Add back to To Do list" ng-click="moveTask($index, project.listAry[2], project.listAry[1])"></button>
-            <button type="button" class="btn btn-danger glyphicon glyphicon-trash" aria-label="Delete" ng-click="removeTask($index, project.listAry[2])"></button>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>
