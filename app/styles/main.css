@@ -88,12 +88,16 @@ body {
     width: 25%;
     float:left;
   }
+
+  .container {
+    width: 100%;
+  }
 }
 
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 1200px;
+    max-width: 1800px;
   }
 
   .list_container{
