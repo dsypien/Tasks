@@ -11,10 +11,16 @@ angular.module('tasksApp')
 			var tasks = [];
 			var workingTasks = [];
 			var finishedTasks = [];
+			var listNames = [];
+			listNames.push('To Do' );
+			listNames.push('Working On');
+			listNames.push('Finished');
 
 			$scope.project.listAry = [tasks, workingTasks, finishedTasks];
+			$scope.project.listAryNames = ['To do', 'Working on', 'Finished'];
 			$scope.projects.push($scope.project);
 			$scope.project = '';
+			
 		};
 
 		$scope.delete = function(index){

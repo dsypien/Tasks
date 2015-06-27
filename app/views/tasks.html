@@ -6,10 +6,10 @@
 
   <div class="clear"></div>
 
-  <!-- Task List -->
+  <!-- Task Lists -->
   <div ng-repeat='tasklist in project.listAry'>
     <div id="backlog_lc" class="list_container">
-      <h2>To do</h2>
+      <h2>{{project.listAryNames[$index]}}</h2>
       <div class="list_body">      
         <div class="tasklist sortable-container" ui-sortable="sortableOptionsList[$index]" ng-model="project.listAry[$index]">
           <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[$index]">
