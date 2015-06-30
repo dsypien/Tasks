@@ -1,15 +1,14 @@
 <div id="taskbody" class="container">
-  <!-- <button id="editbtn" type="button" class="glyphicon glyphicon-pencil" aria-label="Edit" ng-click="enableProjectNameEdit()"></button>
-  <input  ng-readonly="isReadOnlyEditProjectName" id="editable_proj_name" type='text' ng-model='project.name'>
-  -->
-  <click-edit-textbox> </click-edit-textbox>
+  <click-edit-textbox ng-model='project.name'> </click-edit-textbox>
 
   <div class="clear"></div>
 
   <!-- Task Lists -->
   <div ng-repeat='tasklist in project.listAry'>
     <div id="backlog_lc" class="list_container">
-      <h2>{{project.listAryNames[$index]}}</h2>
+      <div class='title-bar'>
+        <click-edit-textbox ng-model='project.listAryNames[$index]'> </click-edit-textbox>
+      </div>
       <div class="list_body">      
         <div class="tasklist sortable-container" ui-sortable="sortableOptionsList[$index]" ng-model="project.listAry[$index]">
           <div class="input-group" ng-class="{placeholder : this.hasClass('input-group')}" ng-repeat="task in project.listAry[$index]">

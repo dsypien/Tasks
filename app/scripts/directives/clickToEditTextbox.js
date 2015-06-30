@@ -2,11 +2,11 @@
 
 angular.module('tasksApp')
 	.directive('clickEditTextbox', function(){
-		function controller($scope){
+		function controller($scope, $element){
 			$scope.isReadOnly = true;
 			$scope.enableEdit = function(){
 				$scope.isReadOnly = false;
-				angular.element('#editable_proj_name').trigger('focus');
+				$element[0].children[1].focus();
 			};
 			$scope.disableEdit = function(){
 				$scope.isReadOnly = true;
@@ -17,6 +17,9 @@ angular.module('tasksApp')
 			restrict: 'E',
 			controller: controller,
 			replace: true,
+			scope: {
+            	ngModel: '='
+        	},
 			templateUrl: '/scripts/directives/clickToEditTextbox.html'
 		};
 	});
