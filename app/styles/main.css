@@ -34,7 +34,7 @@ body {
 }
 
 .noborder{
-    border-style: none;
+    border-style: none !important;
 }
 
 .list_container{
@@ -83,16 +83,6 @@ body {
   }
 }
 
-@media (min-width: 1000px){
-  .col-md-3 {
-    width: 25%;
-    float:left;
-  }
-
-  .container {
-    width: 100%;
-  }
-}
 
 /* Customize container */
 @media (min-width: 768px) {
@@ -102,22 +92,34 @@ body {
 
   .list_container{
     float: left;
-    width: 50%;
-  }
-
-  #backlog_lc{
-    width:48% !important;
-    float:left;  
-    margin-right:2%;
+    width: 49%;
+    margin-right: 1%;
   }
 }
 
+@media (min-width: 1200px){
+  .col-md-3 {
+    width: 25%;
+    float:left;
+  }
 
-.list_container h2{
+  .list_container{
+    float: left;
+    width: 32.333333%;
+    margin-right: 1%;
+
+  }
+}
+
+.input-group-btn .btn{
+    padding: 0px 8px;
+}
+
+.title-bar{
+  overflow: hidden;
   background-color: #3af;
   margin-top: 0px;
-  margin-bottom: 10px;
-  padding: 10px 20px;
+  padding: 0px 5%;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   color: #fff;
@@ -167,9 +169,15 @@ body {
   .ui-sortable-helper{
     width:35% !important;
   }
+  
+  .container {
+    width: 100%;
+  }
 }
 
-
+.container {
+  width: 100%;
+}
 
 .input-group{
 /*  margin-top: 5px;
@@ -263,28 +271,34 @@ textarea {
 }
 
 #editable_proj_name{
-  margin:14px 0px 20px 20px;
+  background-color: transparent !important;
+  margin: 14px 0px 10px 5px;
+  padding: 0px 10px;
   width: 80%;
   float:left;
   font-size: 36px;
   font-weight: bold;
+  border: 1px solid;
+}
+
+.title-bar #editable_proj_name {
+  font-size: 24px;
 }
 
 #editbtn{
-  padding:4px;
-  margin-top:30px;
-  float:left;
+  border: solid 1px;
+  background-color: transparent;
+  padding: 4px;
+  margin-top: 30px;
+  float: left;
+}
+
+.title-bar #editbtn {
+  margin-top: 20px;
 }
 
 .clear{
   clear:both;
-}
-
- {
-  font-size: 36px;
-  width: 90%;
-  float: right;
-  margin-bottom: 30px;
 }
 
 .move-left {
