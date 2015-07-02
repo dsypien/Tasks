@@ -43,6 +43,45 @@ angular.module('tasksApp')
         };
     }
 
+    function drag(event){
+        event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event){
+        event.preventDefault();
+        var draggedID = event.dataTransfer.getData("text");
+        var droppedID = closest(event.target, 'list_container').id;
+
+        var draggedIndex = getIndexOfListId(draggedID);
+        var droppedIndex = getIndexOfListId(droppedID);
+
+        console.log('moving ' + draggedIndex + ' to ' + droppedIndex);
+    }
+    
+
+    function getIndexOfListId(id){
+        return new Number( id.replace(/list_/, '') );
+    }
+
+    function allowDrop(ev) {
+        console.log(ev);
+        ev.preventDefault();
+    }
+
+    function closest(elem, className){
+        do{
+            if(elem.className.indexOf('list_container') > -1){
+                return elem;
+            }            
+        }while(elem = elem.parentElement)
+        
+        return  null;
+    }
+
+    $scope.drag = drag;
+    $scope.allowDrop = allowDrop;
+    $scope.drop = drop;
+
     $scope.sortableOptionsList = [createOptions('toDo'), createOptions('working'), createOptions('finished')];
 
     $scope.$watch('project', function(){
