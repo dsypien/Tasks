@@ -52,35 +52,40 @@ angular.module('tasksApp')
         return new Number( id.replace(/list_/, '') );
     }
 
-    // function swapLists(fromIndex, toIndex){
-    //     console.log("Before " + $scope.project.listAryNames[fromIndex] );
-    //     var fromList = $scope.project.listAry[fromIndex];
-    //     var fromListName = $scope.project.listAryNames[fromIndex];
-
-    //     $scope.project.listAry[fromIndex] = $scope.project.listAry[toIndex];
-    //     $scope.project.listAryNames[fromIndex] = $scope.project.listAryNames[toIndex];
-
-    //     $scope.project.listAry[toIndex] = fromList;
-    //     $scope.project.listAryNames[toIndex] = fromListName;
-    // }
-
-    function moveLists(fromIndex, toIndex){
+    function moveLists(fromIndex, toIndex, doInsertLeft){
         var fromList = $scope.project.listAry[fromIndex],
             fromListName = $scope.project.listAryNames[fromIndex],
             listAry = $scope.project.listAry,
-            listAryNames = $scope.project.listAryNames;
+            listAryNames = $scope.project.listAryNames,
+            movingListToRight = fromIndex < toIndex;
 
         if(toIndex > listAryNames.length){
             listAry.push(undefined);
             listAryNames.push(undefined);
         }
 
-        listAry.splice(toIndex, 
-                       0,
-                       listAry.splice(fromIndex, 1)[0]);
-        listAryNames.splice(toIndex,
-                            0,
-                            listAryNames.splice(fromIndex, 1)[0]);
+        if(doInsertLeft && movingListToRight){
+            listAry.splice(toIndex - 1, 
+                           0,
+                           listAry.splice(fromIndex, 1)[0]);
+            listAryNames.splice(toIndex - 1,
+                           0,
+                           listAryNames.splice(fromIndex, 1)[0]);
+        } else if(doInsertLeft && !movingListToRight){
+            listAry.splice(toIndex, 
+                           0,
+                           listAry.splice(fromIndex, 1)[0]);
+            listAryNames.splice(toIndex,
+                           0,
+                           listAryNames.splice(fromIndex, 1)[0]);
+        }else{
+            listAry.splice(toIndex + 1, 
+                           0,
+                           listAry.splice(fromIndex, 1)[0]);
+            listAryNames.splice(toIndex + 1,
+                           0,
+                           listAryNames.splice(fromIndex, 1)[0]);
+        }
     }
 
     function closest(elem, className){
@@ -129,15 +134,8 @@ angular.module('tasksApp')
 
         if(draggedIndex != overIndex){
             $scope.$apply( function(){
-                console.log('moving index ' + draggedIndex + ' to index ' + overIndex);
-                moveLists(draggedIndex, overIndex);
+                moveLists(draggedIndex, overIndex, _isDraggedOverLeft);
             });
-        }
-
-        if(_isDraggedOverLeft){
-            console.log("Dropping to the left");
-        }else{
-            console.log("Dropping to the right");
         }
 
         _isDragging = false;
