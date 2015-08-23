@@ -5,7 +5,7 @@
 
   <!-- Task Lists -->
   <div ng-repeat='tasklist in project.listAry'>
-    <div id="list_{{$index}}"draggable="true" ondragstart="angular.element(document.getElementById('viewContainer')).scope().drag(event)" class="list_container" ondrop="angular.element(document.getElementById('viewContainer')).scope().drop(event)" ondragover="angular.element(document.getElementById('viewContainer')).scope().dragOver(event)" ondragenter="angular.element(document.getElementById('viewContainer')).scope().dragEnter(event)">
+    <div id="list_{{$index}}"draggable="true" ondragstart="angular.element(document.getElementById('viewContainer')).scope().drag(event)" class="list_container" ondrop="angular.element(document.getElementById('viewContainer')).scope().drop(event)" ondragover="angular.element(document.getElementById('viewContainer')).scope().dragOver(event)" ondragenter="angular.element(document.getElementById('viewContainer')).scope().dragEnter(event)" ng-class="{dropleft : isDragging}">
       <div class='title-bar'>
         <click-edit-textbox ng-model='project.listAryNames[$index]'> </click-edit-textbox>
       </div>

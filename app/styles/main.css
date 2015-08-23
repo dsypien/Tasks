@@ -4,6 +4,16 @@ body {
   background: url(../images/square_bg.png);
 }
 
+.dropright{
+  -webkit-box-shadow: 18px 0 4px 0px !important;
+  box-shadow: 18px 0px 4px 0px !important;
+}
+
+.dropleft{
+  -webkit-box-shadow: -18px 0px 4px 0px !important;
+  box-shadow: -18px 0px 4px 0px !important;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .marketing,
 .footer {
@@ -24,6 +34,16 @@ body {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
+}
+
+.hoveredBackgroundLeft {
+    height: 100%;
+    background: linear-gradient(90deg, #B8B8B8 50%, transparent 50%);
+}
+
+.hoveredBackgroundRight {
+    height: 100%;
+    background: linear-gradient(90deg, transparent 50%, #B8B8B8 50%);
 }
 
 /* Custom page footer */

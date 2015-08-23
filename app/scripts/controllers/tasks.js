@@ -5,11 +5,11 @@ angular.module('tasksApp')
     $scope.project = projectStoreService.getCurrent();
     $scope.isOneColumn = window.innerWidth < 768;
     $scope.isReadOnlyEditProjectName = true;    
-    
-    var _dragThreshold = 0,
-        _isDraggedOverLeft = true,
-        _isDragging = false;
+    $scope.isDragging = false;
+    $scope.hoveringOverId;
+    $scope.isDraggedOverLeft = true;
 
+    var _dragThreshold = 0;
 
     $scope.$watch(function(){
         return window.innerWidth;
@@ -100,14 +100,21 @@ angular.module('tasksApp')
 
     $scope.drag = function(event){
         event.dataTransfer.setData("text", event.target.id);
-        _isDragging = true;
+        $scope.$apply( function(){
+            $scope.isDragging = true;
+        });
     }
 
     $scope.dragEnter = function(event){
         var curElement = event.target;
+
         do{
             if(curElement.className.indexOf('list_container') > -1){
                 _dragThreshold = curElement.clientWidth / 2;
+
+                $scope.$apply( function(){
+                    $scope.hoveringOverId = curElement.id;
+                });
 
                 event.stopPropagation();
                 break;
@@ -117,10 +124,10 @@ angular.module('tasksApp')
 
     $scope.dragOver = function(event) {
         if(event.offsetX > _dragThreshold){
-            _isDraggedOverLeft = false;
+            $scope.isDraggedOverLeft = false;
         }
         else{
-            _isDraggedOverLeft = true;
+            $scope.isDraggedOverLeft = true;
         }
 
         event.preventDefault();
@@ -134,11 +141,12 @@ angular.module('tasksApp')
 
         if(draggedIndex != overIndex){
             $scope.$apply( function(){
-                moveLists(draggedIndex, overIndex, _isDraggedOverLeft);
+                moveLists(draggedIndex, overIndex, $scope.isDraggedOverLeft);
+                $scope.isDragging = false;
+                $scope.hoveringOverId = -1;
             });
         }
 
-        _isDragging = false;
         event.preventDefault();
     }
 
