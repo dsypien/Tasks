@@ -276,7 +276,6 @@ textarea {
     height:100%;
 }
 
-
 .tasklist p{
   position: relative;
 }
@@ -363,8 +362,50 @@ textarea{
 
 textarea[textarea-fit-content]{
   padding-top: 12px;
-  padding-bottom: 0px;
+  padding-bottom: 4px;
 }
+
+#about1img{
+  max-width: 878px;
+  width: 100%;
+}
+
+#aboutImgContainer1{
+  max-width: 878px;
+  margin: 0 auto;
+}
+
+#about2img{
+  max-width: 704px;
+  width: 100%;
+}
+
+#aboutImgContainer2{
+  max-width: 704px;
+  margin: 0 auto;
+}
+
+#about3img{
+  max-width: 580px;
+  width: 100%;
+}
+
+#aboutImgContainer3{
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+#about4img{
+  max-width: 1200px;
+  padding-top: 30px;
+  width: 100%;
+}
+
+#aboutImgContainer4{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 
 @-webkit-keyframes fadeLeft {
   0% { top: 0px; left: 0px; -webkit-transform: rotate(0deg);}

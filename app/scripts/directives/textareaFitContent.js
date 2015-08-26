@@ -29,7 +29,6 @@ angular.module('tasksApp')
 					var element = elem;
 					resizeTextArea(element);
 				}, 0);
-
 			}
 		};
 	}]);

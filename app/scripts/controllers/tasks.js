@@ -6,7 +6,6 @@ angular.module('tasksApp')
     $scope.isOneColumn = window.innerWidth < 768;
     $scope.isReadOnlyEditProjectName = true;    
     $scope.isDragging = false;
-    $scope.hoveringOverId;
     $scope.isDraggedOverLeft = true;
 
     var _dragThreshold = 0;
