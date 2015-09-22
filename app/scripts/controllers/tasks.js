@@ -48,13 +48,11 @@ angular.module('tasksApp')
     }
 
     function getIndexOfListId(id){
-        return new Number( id.replace(/list_/, '') );
+        return parseInt(id.replace(/list_/, '') );
     }
 
     function moveLists(fromIndex, toIndex, doInsertLeft){
-        var fromList = $scope.project.listAry[fromIndex],
-            fromListName = $scope.project.listAryNames[fromIndex],
-            listAry = $scope.project.listAry,
+        var listAry = $scope.project.listAry,
             listAryNames = $scope.project.listAryNames,
             movingListToRight = fromIndex < toIndex;
 
@@ -87,22 +85,23 @@ angular.module('tasksApp')
         }
     }
 
-    function closest(elem, className){
+    function closest(elem){
         do{
             if(elem.className.indexOf('list_container') > -1){
                 return elem;
-            }            
-        }while(elem = elem.parentElement)
+            }  
+            elem = elem.parentElement;          
+        }while(elem);
         
         return  null;
     }
 
     $scope.drag = function(event){
-        event.dataTransfer.setData("text", event.target.id);
+        event.dataTransfer.setData('text', event.target.id);
         $scope.$apply( function(){
-            $scope.isDragging = true;
+            $scope.isDragging = true;  
         });
-    }
+    };
 
     $scope.dragEnter = function(event){
         var curElement = event.target;
@@ -112,14 +111,17 @@ angular.module('tasksApp')
                 _dragThreshold = curElement.clientWidth / 2;
 
                 $scope.$apply( function(){
-                    $scope.hoveringOverId = curElement.id;
+                    /* jshint ignore:start */
+                    $scope.hoveringOverId = curElement.id;  
+                    /* jshint ignore:end */
                 });
 
                 event.stopPropagation();
                 break;
             }
-        }while(curElement = curElement.parentElement)
-    }
+            curElement = curElement.parentElement;
+        }while(curElement);
+    };
 
     $scope.dragOver = function(event) {
         if(event.offsetX > _dragThreshold){
@@ -130,15 +132,15 @@ angular.module('tasksApp')
         }
 
         event.preventDefault();
-    }
+    };
 
     $scope.drop = function (event){
         var hoveringOverID = closest(event.target, 'list_container').id,
-            draggedID = event.dataTransfer.getData("text"),
+            draggedID = event.dataTransfer.getData('text'),
             overIndex = getIndexOfListId(hoveringOverID),
             draggedIndex = getIndexOfListId(draggedID);
 
-        if(draggedIndex != overIndex){
+        if(draggedIndex !== overIndex){
             $scope.$apply( function(){
                 moveLists(draggedIndex, overIndex, $scope.isDraggedOverLeft);
                 $scope.isDragging = false;
@@ -147,7 +149,7 @@ angular.module('tasksApp')
         }
 
         event.preventDefault();
-    }
+    };
 
     $scope.sortableOptionsList = [createOptions('toDo'), createOptions('working'), createOptions('finished')];
 
